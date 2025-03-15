@@ -1,0 +1,66 @@
+[
+  { "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com" },
+  {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "businessName": "Jane's Ice Cream",
+    "email": "jane.doe@example.com"
+  },
+  { "firstName": "Bob", "lastName": "Smith", "email": "bob.smith@example.com" },
+  {
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "email": "alice.johnson@example.com"
+  },
+  {
+    "firstName": "Charlie",
+    "lastName": "Brown",
+    "email": "charlie.brown@example.com"
+  },
+  {
+    "firstName": "Diana",
+    "lastName": "Prince",
+    "email": "diana.prince@example.com"
+  },
+  {
+    "firstName": "Ethan",
+    "lastName": "Hunt",
+    "email": "ethan.hunt@example.com"
+  },
+  {
+    "firstName": "Fiona",
+    "lastName": "Morgan",
+    "email": "fiona.morgan@example.com"
+  },
+  {
+    "firstName": "George",
+    "lastName": "Thompson",
+    "email": "george.thompson@example.com"
+  },
+  {
+    "firstName": "Hannah",
+    "lastName": "Taylor",
+    "email": "hannah.taylor@example.com"
+  },
+  { "firstName": "Ian", "lastName": "Clark", "email": "ian.clark@example.com" },
+  {
+    "firstName": "Julia",
+    "lastName": "Adams",
+    "email": "julia.adams@example.com"
+  },
+  {
+    "firstName": "Kevin",
+    "lastName": "Baker",
+    "email": "kevin.baker@example.com"
+  },
+  {
+    "firstName": "Linda",
+    "lastName": "Carter",
+    "email": "linda.carter@example.com"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Davis",
+    "email": "michael.davis@example.com"
+  }
+]
