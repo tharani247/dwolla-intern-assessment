@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import useSWR, { useSWRConfig } from 'swr';
+import useSWR from 'swr';
 import { Box } from '@mui/material';
 import { AddRounded } from '@mui/icons-material';
 
@@ -21,7 +21,6 @@ const Home = () => {
   // for POST requests. You'll want to use either another library or
   // the Fetch API for adding new customers.
   const fetcher = (url: string) => fetch(url).then(res => res.json());
-  const { mutate } = useSWRConfig();
   const { data, error, isLoading } = useSWR<Customers, ApiError>(
     '/api/customers',
     fetcher
