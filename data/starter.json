@@ -15,11 +15,13 @@
   {
     "firstName": "Charlie",
     "lastName": "Brown",
+    "businessName": "Charlie's Therapy",
     "email": "charlie.brown@example.com"
   },
   {
     "firstName": "Diana",
     "lastName": "Prince",
+    "businessName": "Diana's Island Resort",
     "email": "diana.prince@example.com"
   },
   {
@@ -40,12 +42,14 @@
   {
     "firstName": "Hannah",
     "lastName": "Taylor",
+    "businessName": "Hannah's Bakery",
     "email": "hannah.taylor@example.com"
   },
   { "firstName": "Ian", "lastName": "Clark", "email": "ian.clark@example.com" },
   {
     "firstName": "Julia",
     "lastName": "Adams",
+    "businessName": "Julia's Art Studio",
     "email": "julia.adams@example.com"
   },
   {
@@ -61,6 +65,7 @@
   {
     "firstName": "Michael",
     "lastName": "Davis",
+    "businessName": "Michael's Music School",
     "email": "michael.davis@example.com"
   }
 ]
