@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import useSWR from 'swr';
 import { Box } from '@mui/material';
+// Icon for Add Customer button
 import { AddRounded } from '@mui/icons-material';
 
 export type Customer = {
@@ -13,7 +14,8 @@ export type Customer = {
 export type Customers = Customer[];
 
 export type ApiError = {
-  error: string;
+  code: string;
+  message: string;
 };
 
 const Home = () => {
@@ -34,7 +36,7 @@ const Home = () => {
       <main>
         <Box>
           {isLoading && <p>Loading...</p>}
-          {error && <p>Error: {error.error}</p>}
+          {error && <p>Error: {error.message}</p>}
           {data && (
             <ul>
               {data.map(customer => (

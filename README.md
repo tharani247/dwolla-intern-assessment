@@ -6,15 +6,17 @@ Please complete this technical assessment as outlined below. You can take as muc
 
 ## Scenario
 
-Using the following mock-ups, your are to build out a page that lists all existing customers and a dialog/modal that can be used to add a new customer to that list
+Using the following mock-ups, you are to build out a page that lists all existing customers in a table and a dialog that can be used to add a new customer to that list
 
 ### List
 
+Recommended MUI Component: [Table](https://mui.com/material-ui/react-table/)
 ![List Mock-up](/mocks/list.png)
 
-### Modal
+### Dialog
 
-![Modal Mock-up](/mocks/modal.png)
+Recommended MUI Component: [Dialog](https://mui.com/material-ui/react-dialog/)
+![Dialog Mock-up](/mocks/dialog.png)
 
 ## Additional Instructions
 
@@ -25,9 +27,17 @@ Using the following mock-ups, your are to build out a page that lists all existi
 
 ## Setup
 
-1. Fork this code so that your solution lives on your own GitHub profile
+**Important Note:** Do NOT fork this repository
+
+1. Use this template to create a new repository so that your solution lives on your own GitHub profile (click `Use this template` → `Create a new repository`)
 2. Install the latest LTS version of [Node](https://nodejs.org/en) on your machine. If you use [Node Version Manager](https://github.com/nvm-sh/nvm) on Mac/Linux, run `nvm install`
 3. Run `npm ci` to install dependencies
-4. Run `npm run seed` to get a starting point for your customers data (this can be re-run if data file gets messed up somehow)
+4. Run `npm run seed` to get a starting point for your customers data (this can be re-run if the data file gets messed up somehow)
 5. Run `npm run dev` to start the server
 6. In a browser, navigate to `http://localhost:3000`
+
+## Submitting
+
+1. Push your solution to your repo
+2. Make sure that your repo is public
+3. Send us a link to your repo so that we can review it

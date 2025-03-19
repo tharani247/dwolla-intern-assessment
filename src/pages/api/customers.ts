@@ -25,7 +25,8 @@ const handler = async (
       res.status(200).json(customers);
     } catch {
       res.status(500).json({
-        error:
+        code: 'InternalServerError',
+        message:
           'Error getting customers from file. Check to make sure file exists and contains valid data.',
       });
     }
@@ -37,7 +38,8 @@ const handler = async (
       newCustomer = JSON.parse(req.body);
     } catch {
       res.status(400).json({
-        error: 'Request body was not valid JSON',
+        code: 'BadRequest',
+        message: 'Request body was not valid JSON',
       });
       return;
     }
@@ -46,7 +48,8 @@ const handler = async (
       customers = await getCustomers();
     } catch {
       res.status(500).json({
-        error:
+        code: 'InternalServerError',
+        message:
           'Error getting customers from file. Check to make sure file exists and contains valid data.',
       });
       return;
@@ -54,35 +57,40 @@ const handler = async (
 
     if (!newCustomer.firstName) {
       res.status(400).json({
-        error: 'First name is required',
+        code: 'BadRequest',
+        message: 'First name is required',
       });
       return;
     }
 
     if (!newCustomer.lastName) {
       res.status(400).json({
-        error: 'Last name is required',
+        code: 'BadRequest',
+        message: 'Last name is required',
       });
       return;
     }
 
     if (!newCustomer.email) {
       res.status(400).json({
-        error: 'Email is required',
+        code: 'BadRequest',
+        message: 'Email is required',
       });
       return;
     }
 
     if (!newCustomer.email.includes('@')) {
       res.status(400).json({
-        error: 'Email is invalid',
+        code: 'BadRequest',
+        message: 'Email is invalid',
       });
       return;
     }
 
     if (customers.find(customer => customer.email === newCustomer.email)) {
       res.status(409).json({
-        error: 'A customer with that email already exists',
+        code: 'DuplicateResource',
+        message: 'A customer with that email already exists',
       });
       return;
     }
@@ -91,13 +99,23 @@ const handler = async (
 
     await delay(1000);
 
-    const filePath = path.join(process.cwd(), 'data/customers.json');
-    await fsPromises.writeFile(filePath, JSON.stringify(customers));
+    try {
+      const filePath = path.join(process.cwd(), 'data/customers.json');
+      await fsPromises.writeFile(filePath, JSON.stringify(customers));
+    } catch {
+      res.status(500).json({
+        code: 'InternalServerError',
+        message:
+          'Error writing customers to file. Check to make sure file exists and contains valid data.',
+      });
+      return;
+    }
 
     res.status(200).end();
   } else {
     res.status(405).json({
-      error: 'Method not allowed',
+      code: 'MethodNotAllowed',
+      message: 'Method not allowed',
     });
   }
 };
