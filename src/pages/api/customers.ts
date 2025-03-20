@@ -35,7 +35,11 @@ const handler = async (
     let newCustomer: Customer;
 
     try {
-      newCustomer = JSON.parse(req.body);
+      if (typeof req.body === 'object') {
+        newCustomer = req.body;
+      } else {
+        newCustomer = JSON.parse(req.body);
+      }
     } catch {
       res.status(400).json({
         code: 'BadRequest',

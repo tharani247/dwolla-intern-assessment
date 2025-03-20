@@ -22,7 +22,12 @@ const Home = () => {
   // SWR is a great library for geting data, but is not really a solution
   // for POST requests. You'll want to use either another library or
   // the Fetch API for adding new customers.
-  const fetcher = (url: string) => fetch(url).then(res => res.json());
+  const fetcher = async (url: string) => {
+    const response = await fetch(url);
+    const body = await response.json();
+    if (!response.ok) throw body;
+    return body;
+  };
   const { data, error, isLoading } = useSWR<Customers, ApiError>(
     '/api/customers',
     fetcher

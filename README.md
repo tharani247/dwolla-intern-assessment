@@ -2,7 +2,7 @@
 
 Thank you for applying to be one of our interns this summer! You've made it past the initial resume screen and now we want to see what you can do!
 
-Please complete this technical assessment as outlined below. You can take as much time as you'd like, but we've scoped it to a couple hours or less.
+Please complete this technical assessment as outlined below. The assessment is not timeboxed, but we've scoped it to a couple hours or less. Please complete it within 3 days and email a link to your solution to [cfinholt@dwolla.com & jgens@dwolla.com](mailto:cfinholt@dwoll.com,%20jgens@dwolla.com) for review
 
 ## Scenario
 
@@ -23,6 +23,7 @@ Recommended MUI Component: [Dialog](https://mui.com/material-ui/react-dialog/)
 - Your starting point should be `src/pages/index.tsx`, which already provides a basic structure and an API call to get the list of customers
 - API endpoints have been provided, which should be used for getting the list of customers and adding new ones. You can reference `src/pages/api/customers.ts` for details, but you should not have to make changes to that file as part of this exercise
 - Use [Material UI](https://mui.com/material-ui/all-components/) components
+- Use of [Material UI's sx prop](https://mui.com/system/getting-started/the-sx-prop/) for styling is encouraged, but not required
 - You are welcome to use AI tools to assist you (we do!), but please be prepared to explain your design choices and the code that you submit in a follow-up interview with the hiring manager
 
 ## Setup
@@ -38,6 +39,7 @@ Recommended MUI Component: [Dialog](https://mui.com/material-ui/react-dialog/)
 
 ## Submitting
 
-1. Push your solution to your repo
-2. Make sure that your repo is public
-3. Send us a link to your repo so that we can review it
+1. Complete the assessment sometime within the next 3 days
+2. Push your solution to your repo
+3. Make sure that your repo is public
+4. Email [cfinholt@dwolla.com & jgens@dwolla.com](mailto:cfinholt@dwoll.com,%20jgens@dwolla.com) a link to your repo so that we can review it
