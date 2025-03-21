@@ -6,7 +6,7 @@ Please complete this technical assessment as outlined below. The assessment is n
 
 ## Scenario
 
-Using the following mock-ups, you are to build out a page that lists all existing customers in a table and a dialog that can be used to add a new customer to that list
+You are to build out a page that lists all existing customers in a table and a dialog that can be used to add a new customer to that list. Please try to match the following mock-ups as closely as possible
 
 ### List
 
