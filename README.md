@@ -2,8 +2,9 @@
 # Dwolla Software Engineering Intern Technical Assessment
 I have developed the application based on the given scenario and created a `results` folder in the directory where the documentation is uploaded for better understanding.
 
-1. **Clone the Repository**
+**Steps to run the project**
 ```bash
+1.Clone the Repository
 git clone https://github.com/tharani247/dwolla-intern-assessment.git
 cd dwolla-intern-tech-assessment
 
