@@ -7,14 +7,16 @@ I have developed the application based on the given scenario and created a `resu
 git clone https://github.com/tharani247/dwolla-intern-assessment.git
 cd dwolla-intern-tech-assessment
 
-2. **Install Dependencies**
+2. Install Dependencies
 npm ci
 
-3.**Seed Initial Data**
+3.Seed Initial Data
 npm run seed
 
-4.**Run the Application**
+4.Run the Application
 npm run dev
+
+The application will be available at: http://localhost:3000
 
 # dwolla-intern-assessment
 
