@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dwolla Software Engineering Intern Technical Assessment
 
 Thank you for applying to be one of our interns this summer! You've made it past the initial resume screen and now we want to see what you can do!
@@ -43,3 +44,6 @@ Recommended MUI Component: [Dialog](https://mui.com/material-ui/react-dialog/)
 2. Push your solution to your repo
 3. Make sure that your repo is public
 4. Email [cfinholt@dwolla.com & jgens@dwolla.com](mailto:cfinholt@dwolla.com,jgens@dwolla.com) a link to your repo so that we can review it
+=======
+# dwolla-intern-assessment
+>>>>>>> 9f369ed9dbf9ebefb3441b5ff14a74e24a6458d1
