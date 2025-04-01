@@ -1,7 +1,7 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import useSWR from 'swr';
-import { Box } from '@mui/material';
-// Icon for Add Customer button
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { AddRounded } from '@mui/icons-material';
 
 export type Customer = {
@@ -11,48 +11,72 @@ export type Customer = {
   businessName?: string;
 };
 
-export type Customers = Customer[];
-
-export type ApiError = {
-  code: string;
-  message: string;
-};
+const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 const Home = () => {
-  // SWR is a great library for geting data, but is not really a solution
-  // for POST requests. You'll want to use either another library or
-  // the Fetch API for adding new customers.
-  const fetcher = async (url: string) => {
-    const response = await fetch(url);
-    const body = await response.json();
-    if (!response.ok) throw body;
-    return body;
+  const { data: customers, mutate } = useSWR<Customer[]>('/api/customers', fetcher);
+  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', businessName: '' });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
-  const { data, error, isLoading } = useSWR<Customers, ApiError>(
-    '/api/customers',
-    fetcher
-  );
+
+  const handleSubmit = async () => {
+    await fetch('/api/customers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    mutate(); // Refresh the data after adding a new customer
+    setOpen(false);
+    setFormData({ firstName: '', lastName: '', email: '', businessName: '' });
+  };
 
   return (
     <>
       <Head>
-        <title>Dwolla | Customers</title>
+        <title>Customer Management</title>
       </Head>
-      <main>
-        <Box>
-          {isLoading && <p>Loading...</p>}
-          {error && <p>Error: {error.message}</p>}
-          {data && (
-            <ul>
-              {data.map(customer => (
-                <li key={customer.email}>
-                  {customer.firstName} {customer.lastName}
-                </li>
+      <Box sx={{ padding: 4 }}>
+        <Button variant="contained" startIcon={<AddRounded />} onClick={() => setOpen(true)}>Add Customer</Button>
+
+        <TableContainer component={Paper} sx={{ marginTop: 4 }}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>Business Name</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {customers && customers.map((customer, index) => (
+                <TableRow key={index}>
+                  <TableCell>{customer.firstName} {customer.lastName}</TableCell>
+                  <TableCell>{customer.email}</TableCell>
+                  <TableCell>{customer.businessName || 'N/A'}</TableCell>
+                </TableRow>
               ))}
-            </ul>
-          )}
-        </Box>
-      </main>
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+        <Dialog open={open} onClose={() => setOpen(false)}>
+          <DialogTitle>Add Customer</DialogTitle>
+          <DialogContent>
+            <TextField label="First Name" name="firstName" fullWidth margin="dense" onChange={handleChange} />
+            <TextField label="Last Name" name="lastName" fullWidth margin="dense" onChange={handleChange} />
+            <TextField label="Email" name="email" fullWidth margin="dense" onChange={handleChange} />
+            <TextField label="Business Name" name="businessName" fullWidth margin="dense" onChange={handleChange} />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setOpen(false)}>Cancel</Button>
+            <Button onClick={handleSubmit} variant="contained">Create</Button>
+          </DialogActions>
+        </Dialog>
+      </Box>
     </>
   );
 };
